@@ -47,10 +47,10 @@ var distanceHint = getDistanceHint(distance);
  // Update the #distance element with the new hint
 $("#distance").text(distanceHint);
  // If the click was close enough, tell them they won
-{ if (distance < 8) {
+ if (distance < 8) {
  alert("Found the treasure in " + clicks + " clicks!");
  }
-};
+});
 </script>
 </body>
 </head> 
