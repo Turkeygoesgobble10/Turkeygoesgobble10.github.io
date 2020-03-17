@@ -20,6 +20,34 @@ carElement.css({
  });
 $("body").append(carElement);
  };
+  Car.prototype.moveRight = function () {
+ this.x += 5;
+ this.carElement.css({
+ left: this.x,
+ top: this.y
+ });
+};
+  Car.prototype.moveLeft = function () {
+ this.x -= 5;
+ this.carElement.css({
+ left: this.x,
+ top: this.y
+ });
+};
+Car.prototype.moveUp = function () {
+ this.y -= 5;
+ this.carElement.css({
+ left: this.x,
+ top: this.y
+ });
+};
+Car.prototype.moveDown = function () {
+ this.y += 5;
+ this.carElement.css({
+ left: this.x,
+ top: this.y
+ });
+};
   var tesla = new Car(20, 20);
  var nissan = new Car(100, 200);
  drawCar(tesla);
