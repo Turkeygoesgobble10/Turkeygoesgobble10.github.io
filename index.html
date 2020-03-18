@@ -1,16 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
- <title>Canvas</title>
+ <title>sword i tryed my best</title>
 </head>
 <body>
 <canvas id="canvas" width="200" height="200"></canvas>
  <script>
+ var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+for (var i = 0; i < 20; i++) {
+ctx.fillStyle = "orange"
+ ctx.fillRect(i * 10, i * 10, 20, 20);
+}
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
-for (var i = 0; i < 8; i++) {
- ctx.fillRect(i * 10, i * 10, 10, 10);
+for (var i = 0; i < 13; i++) {
+ctx.fillStyle = "cyan";
+ctx.fillRect(i * 10,i * 10, 25, 25);
 }
+ ctx.strokeStyle = "Green";
+ctx.lineWidth = 15;
+ctx.moveTo(250,	0);
+ctx.lineTo(90, 200);
+ctx.stroke();
  </script>
 </body>
 </html>
