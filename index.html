@@ -1,57 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
- <title>Cars</title>
+ <title>Canvas</title>
 </head>
 <body>
- <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+<canvas id="canvas" width="200" height="200"></canvas>
  <script>
-var Car = function (x, y) {
- this.x = x;
- this.y = y;
- };
-  var drawCar = function (car) {
-var carHtml = '<img src="http://nostarch.com/images/car.png">';
-var carElement = $(carHtml);
-carElement.css({
- position: "absolute",
- left: car.x,
- top: car.y
- });
-$("body").append(carElement);
- };
-  Car.prototype.moveRight = function () {
- this.x += 5;
- this.carElement.css({
- left: this.x,
- top: this.y
- });
-};
-  Car.prototype.moveLeft = function () {
- this.x -= 5;
- this.carElement.css({
- left: this.x,
- top: this.y
- });
-};
-Car.prototype.moveUp = function () {
- this.y -= 5;
- this.carElement.css({
- left: this.x,
- top: this.y
- });
-};
-Car.prototype.moveDown = function () {
- this.y += 5;
- this.carElement.css({
- left: this.x,
- top: this.y
- });
-};
-  var tesla = new Car(20, 20);
- var nissan = new Car(100, 200);
- drawCar(tesla);
- drawCar(nissan);
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+for (var i = 0; i < 8; i++) {
+ ctx.fillRect(i * 10, i * 10, 10, 10);
+}
  </script>
 </body>
 </html>
