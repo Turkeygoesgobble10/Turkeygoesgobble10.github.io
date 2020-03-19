@@ -1,28 +1,67 @@
 <!DOCTYPE html>
 <html>
 <head>
- <title>sword i tryed my best</title>
+ <title>Canvas Animation</title>
 </head>
 <body>
-<canvas id="canvas" width="200" height="200"></canvas>
+ <canvas id="canvas" width="200" height="200"></canvas>
  <script>
- var canvas = document.getElementById("canvas");
-var ctx = canvas.getContext("2d");
-for (var i = 0; i < 20; i++) {
-ctx.fillStyle = "orange"
- ctx.fillRect(i * 10, i * 10, 20, 20);
-}
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
-for (var i = 0; i < 13; i++) {
-ctx.fillStyle = "cyan";
-ctx.fillRect(i * 10,i * 10, 25, 25);
-}
- ctx.strokeStyle = "Green";
-ctx.lineWidth = 15;
-ctx.moveTo(250,	0);
-ctx.lineTo(90, 200);
+var size = 0;
+setInterval(function () {
+ctx.clearRect(0, 0, 200, 200);
+ctx.fillRect(0, 0, size, size);
+size++;
+ if (size > 200) {
+ size = 0;
+ }
+ }, 0);
+var circle = function (x, y, radius, fillCircle) {
+ ctx.beginPath();
+ctx.arc(x, y, radius, 0, Math.PI * 2, false);
+if (fillCircle) {
+ctx.fill();
+ } else {
 ctx.stroke();
+ }
+};
+var drawBee = function (x, y) {
+ctx.lineWidth = 2;
+ ctx.strokeStyle = "Black";
+ ctx.fillStyle = "Gold";
+
+circle(x, y, 8, true);
+ circle(x, y, 8, false);
+ circle(x - 5, y - 11, 5, false);
+ circle(x + 5, y - 11, 5, false);
+ circle(x - 2, y - 1, 2, false);
+ circle(x + 2, y - 1, 2, false);
+};
+var update = function (coordinate) {
+var offset = Math.random() * 4 - 2;
+coordinate += offset;
+if (coordinate > 200) {
+ coordinate = 200;
+ }
+if (coordinate < 0) {
+ coordinate = 0;
+ }
+ return coordinate;
+};
+x = update(x);
+y = update(y);
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+var x = 100;
+var y = 100;
+setInterval(function () {
+ctx.clearRect(0, 0, 200, 200);
+drawBee(x, y);
+x = update(x);
+ y = update(y);
+ctx.strokeRect(0, 0, 200, 200);
+}, 30);
  </script>
 </body>
 </html>
