@@ -53,12 +53,3 @@ ctx.strokeRect(0, 0, 200, 200);
 
 
 
-Ball.prototype.checkCollision = function () {
-if (this.x < 0 || this.x > 200) {
- this.xSpeed = -this.xSpeed;
- }
-if (this.y < 0 || this.y > 200) {
- this.ySpeed = -this.ySpeed;
- }
-};
-
